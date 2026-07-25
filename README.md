@@ -11,7 +11,10 @@
 
 <table>
   <tr>
-    <td><img src="1sban.jpg" width="100%"></td>
+    <td align="center">
+      <img src="1sban.jpg" width="100%">
+    </td>
+  </tr>
 </table>
 
 <p align="center">
