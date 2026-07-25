@@ -12,6 +12,16 @@
 
 		<span
 			v-if="msg.author && !msg.author.isActor"
+			ref="timeout1sRef"
+			@click="banUserFromChat('1s')"
+			@mouseenter="timeout1sTooltip.show(timeout1sRef)"
+			@mouseleave="timeout1sTooltip.hide()"
+		>
+			<TwChatModBan1s />
+		</span>
+
+		<span
+			v-if="msg.author && !msg.author.isActor"
 			ref="timeoutRef"
 			@click="banUserFromChat('10m')"
 			@mouseenter="timeoutTooltip.show(timeoutRef)"
@@ -49,6 +59,7 @@ import { useChatModeration } from "@/composable/chat/useChatModeration";
 import { useChatTools } from "@/composable/chat/useChatTools";
 import { useTooltip } from "@/composable/useTooltip";
 import TwChatModBan from "@/assets/svg/twitch/TwChatModBan.vue";
+import TwChatModBan1s from "@/assets/svg/twitch/TwChatModBan1s.vue";
 import TwChatModDelete from "@/assets/svg/twitch/TwChatModDelete.vue";
 import TwChatModTimeout from "@/assets/svg/twitch/TwChatModTimeout.vue";
 import TwChatModWarn from "@/assets/svg/twitch/TwChatModWarn.vue";
@@ -68,6 +79,9 @@ function showWarnPopover() {
 
 const banRef = ref();
 const banTooltip = useTooltip(`Ban ${props.msg.author?.username ?? "???"}`);
+
+const timeout1sRef = ref();
+const timeout1sTooltip = useTooltip(`Ban 1s ${props.msg.author?.username ?? "???"}`);
 
 const timeoutRef = ref();
 const timeoutTooltip = useTooltip(`Timeout ${props.msg.author?.username ?? "???"}`);
