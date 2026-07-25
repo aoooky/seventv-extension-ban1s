@@ -7,6 +7,13 @@
   </a>
 </p>
 
+## Screenshots
+
+<table>
+  <tr>
+    <td><img src="1sban.jpg" width="100%"></td>
+</table>
+
 <p align="center">
   <a aria-label="Chrome web store stable" href="https://chrome.google.com/webstore/detail/7tv/ammjkodgmmoknidbanneddgankgfejfh">
     <img src="https://img.shields.io/chrome-web-store/v/ammjkodgmmoknidbanneddgankgfejfh?label=Chrome%20Web%20Store%20Stable&style=for-the-badge">
