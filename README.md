@@ -7,15 +7,11 @@
   </a>
 </p>
 
-## Screenshots
+## Screenshot
 
-<table>
-  <tr>
-    <td align="center">
-      <img src="1sban.jpg" width="100%">
-    </td>
-  </tr>
-</table>
+<p align="center">
+  <img src="1sban.jpg" width="100%">
+</p>
 
 <p align="center">
   <a aria-label="Chrome web store stable" href="https://chrome.google.com/webstore/detail/7tv/ammjkodgmmoknidbanneddgankgfejfh">
