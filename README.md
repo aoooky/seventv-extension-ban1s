@@ -1,10 +1,6 @@
 <p align="center">
-  <a href="https://7tv.app">
-    <picture>
-      <img src="public/icon/icon-128.png" height="128">
-    </picture>
-    <h1 align="center">7TV Web Extension</h1>
-  </a>
+  <img src="public/icon/icon-128.png" height="128">
+  <h1 align="center">7TV Extension — Ban 1s</h1>
 </p>
 
 ## Screenshot
@@ -14,87 +10,74 @@
 </p>
 
 <p align="center">
-  <a aria-label="Chrome web store stable" href="https://chrome.google.com/webstore/detail/7tv/ammjkodgmmoknidbanneddgankgfejfh">
-    <img src="https://img.shields.io/chrome-web-store/v/ammjkodgmmoknidbanneddgankgfejfh?label=Chrome%20Web%20Store%20Stable&style=for-the-badge">
-  </a>
-  <a aria-label="Rating" href="https://chrome.google.com/webstore/detail/7tv/ammjkodgmmoknidbanneddgankgfejfh/reviews">
-    <img src="https://img.shields.io/chrome-web-store/rating/ammjkodgmmoknidbanneddgankgfejfh?style=for-the-badge">
-  </a>
-  <a aria-label="Users" href="https://chrome.google.com/webstore/detail/7tv/ammjkodgmmoknidbanneddgankgfejfh">
-    <img src="https://img.shields.io/chrome-web-store/users/ammjkodgmmoknidbanneddgankgfejfh?style=for-the-badge">
-  </a>
+  Модификация <a href="https://github.com/SevenTV/Extension">7TV Web Extension</a> с добавлением кнопки быстрого бана на 1 секунду в чате Twitch.
 </p>
+
+---
+
+## Что изменено
+
+Добавлена новая кнопка **Ban 1s** в панель модерации чата. Теперь рядом с обычными кнопками Ban, Timeout, Warn и Delete появилась дополнительная кнопка для мгновенного бана на 1 секунду.
+
+### Расположение кнопок (слева направо):
+
+| Кнопка | Действие |
+|--------|----------|
+| Ban | Перманентный бан |
+| **Ban 1s** | Бан на 1 секунду (новая!) |
+| Timeout | Таймаут на 10 минут |
+| Warn | Предупреждение |
+| Delete | Удалить сообщение |
+
+> Кнопка Ban 1s отображается только для модераторов канала.
+
+---
+
+## Скриншот
 
 <p align="center">
-  <a aria-label="Chrome web store nightly" href="https://chrome.google.com/webstore/detail/7tv/fphegifdehlodcepfkgofelcenelpedj">
-    <img src="https://img.shields.io/chrome-web-store/v/fphegifdehlodcepfkgofelcenelpedj?label=Chrome%20Web%20Store%20Nightly&style=for-the-badge">
-  </a>
-  <a aria-label="Rating" href="https://chrome.google.com/webstore/detail/7tv/fphegifdehlodcepfkgofelcenelpedj/reviews">
-    <img src="https://img.shields.io/chrome-web-store/rating/fphegifdehlodcepfkgofelcenelpedj?style=for-the-badge">
-  </a>
-  <a aria-label="Users" href="https://chrome.google.com/webstore/detail/7tv/fphegifdehlodcepfkgofelcenelpedj">
-    <img src="https://img.shields.io/chrome-web-store/users/fphegifdehlodcepfkgofelcenelpedj?style=for-the-badge">
-  </a>
+  <img src="Screenshot_4.jpg" width="100%">
 </p>
 
-<p align="center">
-  <a aria-label="GitHub release" href="https://github.com/SevenTV/Extension/releases">
-    <img src="https://img.shields.io/github/v/release/SevenTV/Extension?style=for-the-badge">
-  </a>
-  <a aria-label="GitHub contributors" href="https://github.com/SevenTV/Extension/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/SevenTV/Extension?style=for-the-badge">
-  </a>
-  <a aria-label="GitHub issues" href="https://github.com/SevenTV/Extension/issues">
-    <img src="https://img.shields.io/github/issues/SevenTV/Extension?style=for-the-badge">
-  </a>
-  <a aria-label="GitHub pull requests" href="https://github.com/SevenTV/Extension/pulls">
-    <img src="https://img.shields.io/github/issues-pr/SevenTV/Extension?style=for-the-badge">
-  </a>
-</p>
+---
 
-## Development
+## Установка
 
-### Building
+### Chrome / Brave / Edge
 
--   make deps
--   make production
+1. Скачайте и распакуйте [последний релиз](https://github.com/aoooky/seventv-extension-ban1s/releases) или ZIP-архив
+2. Откройте `chrome://extensions`
+3. Включите **Режим разработчика** (Developer mode) в правом верхнем углу
+4. Нажмите **Загрузить распакованное расширение** (Load unpacked)
+5. Выберите папку `dist` из распакованного архива
+6. Готово! Откройте Twitch и наслаждайтесь новой кнопкой
 
-For a development/nightly (non-stable) build, set `BRANCH=nightly` in your environment variables.
+### Firefox
 
-Build output located in `dist/`.
+1. Скачайте и распакуйте релиз
+2. Откройте `about:debugging#/runtime/this-firefox`
+3. Нажмите **Загрузить временное дополнение** (Load Temporary Add-on)
+4. Выберите файл `manifest.json` внутри папки `dist`
 
-### Contributing
+---
 
-This extension is configured to work with HMR (Hot Module Replacement), which makes development significantly faster and more enjoyable than the traditional methods for making web extensions. This allows the developer to see changes reflect in real-time, even while on a remote website.
+## Сборка из исходников
 
-#### Working Locally
+```bash
+git clone https://github.com/aoooky/seventv-extension-ban1s.git
+cd seventv-extension-ban1s
+npm install
+npx cross-env NODE_ENV=production npx vite build --config vite.config.mts
+npx cross-env NODE_ENV=production npx vite build --config vite.config.background.mts
+npx cross-env NODE_ENV=production npx vite build --config vite.config.content.mts
+npx cross-env NODE_ENV=production npx vite build --config vite.config.worker.mts
+```
 
-We use [Vite](https://vitejs.dev/) as a primary tool for development and bundling.
+Результат сборки будет в папке `dist/`.
 
-Getting the extension to work locally is fast and easy, follow these steps:
+---
 
--   Clone the repo: `git clone git@github.com:SevenTV/Extension.git`
--   Install dependencies: `make deps`
--   Run `yarn start`
+## Основано на
 
-The extension will now be compiled into its initial bundle, which may take up to twenty seconds. In dev mode, it is configured to connect to the vite server, which will start right after the bundle is complete.
-
-The build files will be located in the `dist/` folder: add this folder as an unpacked extension via the chrome extensions page.
-
-#### Extension Loader
-
-This repository is adapted as a BrowserExtension. It uses a `manifest.json` and the [Extension API](https://developer.chrome.com/docs/extensions/reference/) to run inside a browser.
-
-The site-specific content and logic, however, runs as a Site Script, sectioned off by origin under `src/sites`. The Extension Content Script (`src/content/content.ts`) acts as a Loader for the site script, which is where the actual logic for modifying websites is located.
-
-We do not use Isolated Worlds as we must access internal values from the website, which is not possible under an Extension Isolated World (content script).
-
-#### Extension Background / Service Worker
-
-The background script sets up some extension API-specific listeners for matters such as permissions. It also takes care of cross-site settings synchronization, by maintaining a copy of IndexedDB inside the Extension Context and re-distributing the updated config nodes to sites.
-
-#### Site Script
-
-Most of the logic inside the Extension runs under the Site Script, located under `src/sites`. Each folder there corresponds to an origin, such as `twitch.tv` or `youtube.com`. A module system exists to neatly section off features into their own space.
-
-The site script works with HMR (Hot Module Replacement) and any changes to components within will hot-update accordingly, making UI building very efficient.
+- [SevenTV Extension](https://github.com/SevenTV/Extension) — оригинальное расширение
+- Лицензия: MIT
