@@ -30,7 +30,7 @@ A new **Ban 1s** button has been added to the chat moderation panel. It sits alo
 ## Screenshot
 
 <p align="center">
-  <img src="Screenshot_4.jpg" width="100%">
+  <img src="1sban.jpg" width="100%">
 </p>
 
 ---
